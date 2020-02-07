@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ServiceStack" Version="5.*" />
+    <PackageReference Include="ServiceStack.Kestrel" Version="5.*" />
+    <PackageReference Include="ServiceStack.GrpcClient" Version="5.8.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\HashNet.Net.Model\HashNet.Net.Model.csproj" />
+  </ItemGroup>
+
+</Project>
