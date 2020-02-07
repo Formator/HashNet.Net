@@ -8,8 +8,4 @@
     <PackageReference Include="ServiceStack.Interfaces" Version="5.8.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Types\" />
-  </ItemGroup>
-
 </Project>

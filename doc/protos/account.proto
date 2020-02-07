@@ -1,0 +1,164 @@
+syntax = "proto3";
+
+package tolar.proto;
+
+
+
+service AccountService {
+    rpc Create(CreateRequest) returns (CreateResponse);
+    rpc Open(OpenRequest) returns (OpenResponse);
+    rpc ChangePassword(ChangePasswordRequest) returns (ChangePasswordResponse);
+    rpc ListAddresses(ListAddressesRequest) returns (ListAddressesResponse);
+    rpc ListBalancePerAddress(ListBalancePerAddressRequest) returns (ListBalancePerAddressResponse);
+    rpc VerifyAddress(VerifyAddressRequest) returns (VerifyAddressResponse);
+    rpc CreateNewAddress(CreateNewAddressRequest) returns (CreateNewAddressResponse);
+    rpc ChangeAddressPassword(ChangeAddressPasswordRequest) returns (ChangeAddressPasswordResponse);
+    rpc ExportKeyFile(ExportKeyFileRequest) returns (ExportKeyFileResponse);
+    rpc ImportKeyFile(ImportKeyFileRequest) returns (ImportKeyFileResponse);
+    rpc SendRawTransaction(SendRawTransactionRequest) returns (SendTransactionsResponse);
+    rpc SendFundTransferTransaction(SendFundTransferTransactionRequest) returns (SendTransactionsResponse);
+    rpc SendDeployContractTransaction(SendDeployContractTransactionRequest) returns (SendTransactionsResponse);
+    rpc SendExecuteFunctionTransaction(SendExecuteFunctionTransactionRequest) returns (SendTransactionsResponse);
+}
+
+message CreateRequest {
+    string master_password = 1;
+}
+
+message CreateResponse {
+    bool result = 1;
+}
+
+message OpenRequest {
+    string master_password = 1;
+}
+
+message OpenResponse {
+    bool result = 1;
+}
+
+message ChangePasswordRequest {
+    string old_master_password = 1;
+    string new_master_password = 2;
+}
+
+message ChangePasswordResponse {
+    bool result = 1;
+}
+
+message ListAddressesRequest {
+}
+
+message ListAddressesResponse {
+    repeated bytes addresses = 1;
+}
+
+message ListBalancePerAddressRequest {
+}
+
+message AddressBalance {
+    bytes address = 1;
+    bytes balance = 2;
+    string address_name = 3;
+}
+
+message ListBalancePerAddressResponse {
+    repeated AddressBalance addresses = 1;
+}
+
+message VerifyAddressRequest {
+    bytes address = 1;
+}
+
+message VerifyAddressResponse {
+    bool result = 1;
+}
+
+message CreateNewAddressRequest {
+    string name = 1;
+    string lock_password = 2;
+    string lock_hint = 3;
+}
+
+message CreateNewAddressResponse {
+    bytes address = 1;
+}
+
+message ChangeAddressPasswordRequest {
+    bytes address = 1;
+    string old_password = 2;
+    string new_password = 3;
+}
+
+message ChangeAddressPasswordResponse {
+    bool result = 1;
+}
+
+message ExportKeyFileRequest {
+    bytes address = 1;
+}
+
+message ExportKeyFileResponse {
+    string json_key_file = 1;
+}
+
+message ImportKeyFileRequest {
+    string json_key_file = 1;
+    string name = 2;
+    string lock_password = 3;
+    string lock_hint = 4;
+}
+
+message ImportKeyFileResponse {
+    bool result = 1;
+}
+
+// TODO(ibrajer): merge all transaction related fields as single tx.Transaction field
+message SendRawTransactionRequest {
+    bytes sender_address = 1;
+    bytes receiver_address = 2;
+    bytes amount = 3;
+    string sender_address_password = 4;
+    bytes gas = 5;
+    bytes gas_price = 6;
+    string data = 7;
+    bytes nonce = 8;
+}
+
+message SendFundTransferTransactionRequest {
+    bytes sender_address = 1;
+    bytes receiver_address = 2;
+    bytes amount = 3;
+    string sender_address_password = 4;
+    bytes gas = 5;
+    bytes gas_price = 6;
+    bytes nonce = 7;
+
+}
+
+message SendDeployContractTransactionRequest {
+    bytes sender_address = 1;
+    bytes amount = 2;
+    string sender_address_password = 3;
+    bytes gas = 4;
+    bytes gas_price = 5;
+    string data = 6;
+    bytes nonce = 7;
+
+}
+
+message SendExecuteFunctionTransactionRequest {
+    bytes sender_address = 1;
+    bytes receiver_address = 2;
+    bytes amount = 3;
+    string sender_address_password = 4;
+    bytes gas = 5;
+    bytes gas_price = 6;
+    string data = 7;
+    bytes nonce = 8;
+
+}
+
+message SendTransactionsResponse {
+    bytes transaction_hash = 1;
+}
