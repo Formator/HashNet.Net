@@ -5,13 +5,27 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="ServiceStack" Version="5.*" />
+    <Protobuf Include="..\..\tolar\proto\account.proto" GrpcServices="AccountService" Link="proto\account.proto" />
+    <Protobuf Include="..\..\tolar\proto\blockchain.proto" GrpcServices="BlockchainService" Link="proto\blockchain.proto" />
+    <!--<Protobuf Include="..\..\tolar\proto\client.proto" GrpcServices="TolarService" Link="proto\client.proto" />-->
+    <Protobuf Include="..\..\tolar\proto\network.proto" GrpcServices="NetworkService" Link="proto\network.proto" />
+    <Protobuf Include="..\..\tolar\proto\node.proto" GrpcServices="NodeService" Link="proto\node.proto" />
+    <!--<Protobuf Include="..\..\tolar\proto\version.proto" GrpcServices="VersionService" Link="proto\version.proto" />-->
+    <PackageReference Include="Google.Protobuf" Version="3.11.4" />
+
+    <PackageReference Include="Grpc.Net.Client" Version="2.27.0" />
+
+    <PackageReference Include="Grpc.Tools" Version="2.27.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <!--<PackageReference Include="ServiceStack" Version="5.*" />
     <PackageReference Include="ServiceStack.Kestrel" Version="5.*" />
-    <PackageReference Include="ServiceStack.GrpcClient" Version="5.8.0" />
+    <PackageReference Include="ServiceStack.GrpcClient" Version="5.8.0" />-->    
   </ItemGroup>
 
-  <ItemGroup>
+  <!--<ItemGroup>
     <ProjectReference Include="..\HashNet.Net.Model\HashNet.Net.Model.csproj" />
-  </ItemGroup>
+  </ItemGroup>-->
 
 </Project>

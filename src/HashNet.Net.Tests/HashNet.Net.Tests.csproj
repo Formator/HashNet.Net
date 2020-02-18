@@ -8,15 +8,14 @@
 
   <ItemGroup>
     <ProjectReference Include="..\HashNet.Net\HashNet.Net.csproj" />
-    <ProjectReference Include="..\HashNet.Net.Model\HashNet.Net.Model.csproj" />
 
     <PackageReference Include="NUnit" Version="3.12.*" />
     <PackageReference Include="NUnit3TestAdapter" Version="3.15.*" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.4.*" />
-    <PackageReference Include="ServiceStack" Version="5.*" />
+    <!--<PackageReference Include="ServiceStack" Version="5.*" />
     <PackageReference Include="ServiceStack.Kestrel" Version="5.*" />
     <PackageReference Include="ServiceStack.Extensions" Version="5.*" />
-    <PackageReference Include="ServiceStack.GrpcClient" Version="5.*" />
+    <PackageReference Include="ServiceStack.GrpcClient" Version="5.*" />-->
   </ItemGroup>
 
 </Project>

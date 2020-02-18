@@ -1,44 +1,62 @@
+﻿using Grpc.Net.Client;
 using System;
-using ServiceStack;
-using HashNet.Net.Model;
-using HashNet.Net.Model.Account;
+using System.Collections.Generic;
+using System.Text;
 using System.Threading.Tasks;
-using ProtoBuf.Grpc.Client;
+using Tolar.Proto;
 
 namespace HashNet.Net
 {
-    public class HashNetClient : IHashNetClient
+    public class HashNetClient: IHashNetClient
     {
-        IServiceClientAsync hashNetRpcClient;
+        private BlockchainService.BlockchainServiceClient _blockchainService;
+        private AccountService.AccountServiceClient _accountService;
 
-        public HashNetClient(): this("")
-        {}
-
-        public HashNetClient(string url)
+        public HashNetClient(string blockchainEndpoint = "https://127.0.0.1:9100", string accountEndpoint = "https://127.0.0.1:9100")
         {
-            GrpcClientFactory.AllowUnencryptedHttp2 = true;
-            Url = url;
+            AccountEndpoint = accountEndpoint;
+            BlockchainEndpoint = blockchainEndpoint;
         }
 
-        public string Url { get; set; }
-        public IServiceClientAsync HashNetRpcClient 
-        { 
-            get 
+        public string AccountEndpoint{ get; set; }
+        public string BlockchainEndpoint { get; set; }
+
+        public async Task<object> GetAddresses()
+        {
+            var reply = await AccountService.ListAddressesAsync(new ListAddressesRequest());
+            return reply;
+        }
+
+        public async Task<object> GetBlockCount()
+        {
+            var reply = await BlockchainService.GetBlockCountAsync(new GetBlockCountRequest());
+            return reply;
+        }
+
+        private AccountService.AccountServiceClient AccountService
+        {
+            get
             {
-                if (hashNetRpcClient == null)
-                    hashNetRpcClient = new GrpcServiceClient(Url);
-                return hashNetRpcClient;
+                if (_accountService == null)
+                {
+                    var channel = GrpcChannel.ForAddress(AccountEndpoint);
+                    _accountService = new AccountService.AccountServiceClient(channel);
+                }
+                return _accountService;
             }
         }
 
-        public async Task<ListAddressesResponse> GetAddresses()
+        private BlockchainService.BlockchainServiceClient BlockchainService
         {
-            var client = HashNetRpcClient;
-
-            var response = await client.GetAsync(new ListAddresses());
-            return response;
-
-            //Console.WriteLine(response.Result);
+            get
+            {
+                if (_blockchainService == null)
+                {
+                    var channel = GrpcChannel.ForAddress(BlockchainEndpoint);
+                    _blockchainService = new BlockchainService.BlockchainServiceClient(channel);
+                }
+                return _blockchainService;
+            }
         }
     }
 }
