@@ -8,8 +8,8 @@ namespace HashNet.Net.Tests
     [TestFixture]
     public class BlockchainTests
     {
-        private const int Port = 9100;
-        static readonly string BaseUri = $"https://116.203.182.5:{Port}";
+        private const int Port = 9600;
+        static readonly string BaseUri = $"http://127.0.0.1:{Port}";
         public IHashNetClient CreateClient() => new HashNetClient(BaseUri);
 
         [Test]

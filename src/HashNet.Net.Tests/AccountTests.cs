@@ -8,7 +8,7 @@ namespace HashNet.Net.Tests
     public class AccountTests
     {
         private const int Port = 9600;
-        static readonly string BaseUri = $"https://127.0.0.1:{Port}";
+        static readonly string BaseUri = $"http://127.0.0.1:{Port}";
         public IHashNetClient CreateClient() => new HashNetClient(BaseUri);
 
         [Test]

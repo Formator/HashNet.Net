@@ -1,4 +1,5 @@
-﻿using Grpc.Net.Client;
+﻿using Grpc.Core;
+using Grpc.Net.Client;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -52,6 +53,10 @@ namespace HashNet.Net
             {
                 if (_blockchainService == null)
                 {
+                    //var channel = GrpcChannel.ForAddress(BlockchainEndpoint, new GrpcChannelOptions
+                    //{
+                    //    Credentials = ChannelCredentials.Insecure
+                    //});
                     var channel = GrpcChannel.ForAddress(BlockchainEndpoint);
                     _blockchainService = new BlockchainService.BlockchainServiceClient(channel);
                 }
