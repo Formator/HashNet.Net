@@ -289,5 +289,3 @@ __pycache__/
 *.btm.cs
 *.odx.cs
 *.xsd.cs
-/tolar/deamon/win/.tolar/logs
-keystore
