@@ -1,0 +1,23 @@
+# Version of docker compose we're writing our file for
+version: "3.7"
+
+# Define the services that make up our application
+services:
+  # Name of our service
+  tolar_daemon_sichain:
+    #restart: always
+    #   Give the container the name my_postgres. You can changes to something else.
+    container_name: "tolar_daemon_sichain"
+    image: ${CI_REGISTRY}tolar_daemon_sichain:${CI_PIPELINE_ID:-devel_latest}
+    # Build section of configuration
+    build:
+      # Set context to current working directory
+      context: .
+      dockerfile: ./linux/Dockerfile
+    volumes:
+      - .tolar/:/.tolar/
+    # Set the ports configuration
+    ports:
+      - "9100:9100"
+      - "9200:9200"
+      - "9600:9600"

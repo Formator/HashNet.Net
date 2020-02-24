@@ -3,19 +3,20 @@
     "private_key": "de7ef69e240363d328e506413acb0b567efce668ab83d0c6e2002eeaacf207b6",
     "public_key": "ebac646c3411194b00c916c0427c7e5fd9c4c0a6ddbd36ec731ffaaa0dbdd9e6c7612c17f2e435acb0450595e4e3de2fad5c1b8a10fd31e0c469f4b27a46f0c2",
     "node_endpoint": {
-      "ip_address": "127.0.0.1",
+      "ip_address": "0.0.0.0",
       "port": "9100"
     },
     "client_endpoint": {
-      "ip_address": "127.0.0.1",
+      "ip_address": "0.0.0.0",
       "port": "9200"
     },
-    "leveldb_dir": "./.tolar/keystore/Thin_node/db"
+    "leveldb_dir": "../.tolar/keystore/Thin_node/db"
   },
   "NetworkConfiguration": {
     "heartbeat_milliseconds": "1000",
     "max_transactions_per_event": "1000",
-    "seeds": [{
+    "seeds": [
+      {
         "public_key": "f1bcdd1af52883c3cd47c51eb7dba40ec656bebedff45bbbd68477239b1385a73862484bd3a17615886fc138d6dd6e098819cf1149f4a6c23a297afaf8a9ee10",
         "node_endpoint": {
           "ip_address": "116.203.182.5",
@@ -43,7 +44,7 @@
             "ip_address": "116.203.182.5",
             "port": "9500"
           },
-          "url_path": "\/metrics"
+          "url_path": "/metrics"
         }
       },
       {
@@ -74,7 +75,7 @@
             "ip_address": "116.203.182.9",
             "port": "9500"
           },
-          "url_path": "\/metrics"
+          "url_path": "/metrics"
         }
       },
       {
@@ -105,7 +106,7 @@
             "ip_address": "116.203.182.11",
             "port": "9500"
           },
-          "url_path": "\/metrics"
+          "url_path": "/metrics"
         }
       },
       {
@@ -136,19 +137,19 @@
             "ip_address": "116.203.182.13",
             "port": "9500"
           },
-          "url_path": "\/metrics"
+          "url_path": "/metrics"
         }
       }
     ]
   },
   "KeyStoreConfig": {
     "account_endpoint": {
-      "ip_address": "127.0.0.1",
+      "ip_address": "0.0.0.0",
       "port": "9600"
     },
-    "keys_file_path": "./.tolar/keystore/Thin_node/keys.info",
-    "secrets_path": "./.tolar/keystore/Thin_node/keys"
+    "keys_file_path": "../.tolar/keystore/Thin_node/keys.info",
+    "secrets_path": "../.tolar/keystore/Thin_node/keys"
   },
   "host_id": "Thin_node",
-  "config_path": "./.tolar/keystore/Thin_node"
+  "config_path": "../.tolar/keystore/Thin_node"
 }
