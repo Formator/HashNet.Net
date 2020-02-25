@@ -9,5 +9,6 @@ namespace HashNet.Net
         //Task<ListAddressesResponse> GetAddresses();
         Task<object> GetAddresses();
         Task<object> GetBlockCount();
+        Task<object> GetBlockchainInfo();
     }
 }

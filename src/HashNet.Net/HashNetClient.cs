@@ -13,8 +13,10 @@ namespace HashNet.Net
         private BlockchainService.BlockchainServiceClient _blockchainService;
         private AccountService.AccountServiceClient _accountService;
 
-        public HashNetClient(string blockchainEndpoint = "https://127.0.0.1:9100", string accountEndpoint = "https://127.0.0.1:9100")
+        public HashNetClient(string blockchainEndpoint = "https://localhost:9100", string accountEndpoint = "https://localhost:9100")
         {
+            // This switch must be set before creating the GrpcChannel/HttpClient.
+            AppContext.SetSwitch("System.Net.Http.SocketsHttpHandler.Http2UnencryptedSupport", true);
             AccountEndpoint = accountEndpoint;
             BlockchainEndpoint = blockchainEndpoint;
         }
@@ -34,13 +36,19 @@ namespace HashNet.Net
             return reply;
         }
 
+        public async Task<object> GetBlockchainInfo()
+        {
+            var reply = await BlockchainService.GetBlockchainInfoAsync(new GetBlockchainInfoRequest());
+            return reply;
+        }
+
         private AccountService.AccountServiceClient AccountService
         {
             get
             {
                 if (_accountService == null)
                 {
-                    var channel = GrpcChannel.ForAddress(AccountEndpoint);
+                    var channel = GrpcChannel.ForAddress(AccountEndpoint); //, ChannelCredentials.Insecure
                     _accountService = new AccountService.AccountServiceClient(channel);
                 }
                 return _accountService;

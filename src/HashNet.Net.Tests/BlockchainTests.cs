@@ -9,8 +9,8 @@ namespace HashNet.Net.Tests
     public class BlockchainTests
     {
         private const int Port = 9200;
-        static readonly string BaseUri = $"http://127.0.0.1:{Port}";
-        public IHashNetClient CreateClient() => new HashNetClient(BaseUri);
+        static readonly string BaseUri = $"http://localhost:{Port}";
+        public IHashNetClient CreateClient() => new HashNetClient(blockchainEndpoint:BaseUri, accountEndpoint: BaseUri);
 
         [Test]
         public void Can_GetBlockCount()
@@ -19,5 +19,14 @@ namespace HashNet.Net.Tests
             var result = testClient.GetBlockCount();
             var finaleResult = result.Result;
         }
+
+        [Test]
+        public void Can_GetBlockchainInfo()
+        {
+            var testClient = CreateClient();
+            var result = testClient.GetBlockchainInfo();
+            var finaleResult = result.Result;
+        }
+
     }
 }
