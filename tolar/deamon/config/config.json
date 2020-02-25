@@ -1,155 +1,151 @@
 {
-  "ThinNodeConfig": {
-    "private_key": "de7ef69e240363d328e506413acb0b567efce668ab83d0c6e2002eeaacf207b6",
-    "public_key": "ebac646c3411194b00c916c0427c7e5fd9c4c0a6ddbd36ec731ffaaa0dbdd9e6c7612c17f2e435acb0450595e4e3de2fad5c1b8a10fd31e0c469f4b27a46f0c2",
-    "node_endpoint": {
-      "ip_address": "0.0.0.0",
-      "port": "9100"
+    "ThinNodeConfig": {
+        "client_endpoint": {
+            "ip_address": "0.0.0.0",
+            "port": "9200"
+        }
     },
-    "client_endpoint": {
-      "ip_address": "0.0.0.0",
-      "port": "9200"
+    "NetworkConfiguration": {
+        "heartbeat_milliseconds": "1000",
+        "max_transactions_per_event": "1000",
+        "seeds": [
+            {
+                "public_key": "f1bcdd1af52883c3cd47c51eb7dba40ec656bebedff45bbbd68477239b1385a73862484bd3a17615886fc138d6dd6e098819cf1149f4a6c23a297afaf8a9ee10",
+                "node_endpoint": {
+                    "ip_address": "116.203.182.5",
+                    "port": "9100"
+                },
+                "client_endpoint": {
+                    "ip_address": "116.203.182.5",
+                    "port": "9200"
+                },
+                "remote_cmd_endpoint": {
+                    "ip_address": "116.203.182.5",
+                    "port": "9400"
+                },
+                "account_endpoint": {
+                    "ip_address": "116.203.182.5",
+                    "port": "9600"
+                },
+                "stake": "1",
+                "PrometheusPullConfig": {
+                    "bind_endpoint": {
+                        "ip_address": "0.0.0.0",
+                        "port": "9500"
+                    },
+                    "access_endpoint": {
+                        "ip_address": "116.203.182.5",
+                        "port": "9500"
+                    },
+                    "url_path": "/metrics"
+                }
+            },
+            {
+                "public_key": "72a5551dedadb38abc97c8b0ab272cbd4d35aadf6ff07c35ab2c83f43ad1bd0def954038eb6d31feb99382ff0e9e72e7a408c41d6db672bcb546679344b9cc6b",
+                "node_endpoint": {
+                    "ip_address": "116.203.182.9",
+                    "port": "9100"
+                },
+                "client_endpoint": {
+                    "ip_address": "116.203.182.9",
+                    "port": "9200"
+                },
+                "remote_cmd_endpoint": {
+                    "ip_address": "116.203.182.9",
+                    "port": "9400"
+                },
+                "account_endpoint": {
+                    "ip_address": "116.203.182.9",
+                    "port": "9600"
+                },
+                "stake": "1",
+                "PrometheusPullConfig": {
+                    "bind_endpoint": {
+                        "ip_address": "0.0.0.0",
+                        "port": "9500"
+                    },
+                    "access_endpoint": {
+                        "ip_address": "116.203.182.9",
+                        "port": "9500"
+                    },
+                    "url_path": "/metrics"
+                }
+            },
+            {
+                "public_key": "c8bce1a19d76195cd97cea059bf2beec67a4a59edcfbb70edb962c1a4e5f78825747cf9a381dc77a2d43bee596f53883e9253afea12b11ae24e9137a97ed548d",
+                "node_endpoint": {
+                    "ip_address": "116.203.182.11",
+                    "port": "9100"
+                },
+                "client_endpoint": {
+                    "ip_address": "116.203.182.11",
+                    "port": "9200"
+                },
+                "remote_cmd_endpoint": {
+                    "ip_address": "116.203.182.11",
+                    "port": "9400"
+                },
+                "account_endpoint": {
+                    "ip_address": "116.203.182.11",
+                    "port": "9600"
+                },
+                "stake": "1",
+                "PrometheusPullConfig": {
+                    "bind_endpoint": {
+                        "ip_address": "0.0.0.0",
+                        "port": "9500"
+                    },
+                    "access_endpoint": {
+                        "ip_address": "116.203.182.11",
+                        "port": "9500"
+                    },
+                    "url_path": "/metrics"
+                }
+            },
+            {
+                "public_key": "d302f6bb3a5e37f3d1e199635f20aaa04e010980e2bf922861f4a7ef4a833228ef41836f9449819706bb89752a6d3d6b6f97df4f9ec28f251a4af27daeca91f1",
+                "node_endpoint": {
+                    "ip_address": "116.203.182.13",
+                    "port": "9100"
+                },
+                "client_endpoint": {
+                    "ip_address": "116.203.182.13",
+                    "port": "9200"
+                },
+                "remote_cmd_endpoint": {
+                    "ip_address": "116.203.182.13",
+                    "port": "9400"
+                },
+                "account_endpoint": {
+                    "ip_address": "116.203.182.13",
+                    "port": "9600"
+                },
+                "stake": "1",
+                "PrometheusPullConfig": {
+                    "bind_endpoint": {
+                        "ip_address": "0.0.0.0",
+                        "port": "9500"
+                    },
+                    "access_endpoint": {
+                        "ip_address": "116.203.182.13",
+                        "port": "9500"
+                    },
+                    "url_path": "/metrics"
+                }
+            }
+        ]
     },
-    "leveldb_dir": "../.tolar/keystore/Thin_node/db"
-  },
-  "NetworkConfiguration": {
-    "heartbeat_milliseconds": "1000",
-    "max_transactions_per_event": "1000",
-    "seeds": [
-      {
-        "public_key": "f1bcdd1af52883c3cd47c51eb7dba40ec656bebedff45bbbd68477239b1385a73862484bd3a17615886fc138d6dd6e098819cf1149f4a6c23a297afaf8a9ee10",
-        "node_endpoint": {
-          "ip_address": "116.203.182.5",
-          "port": "9100"
-        },
-        "client_endpoint": {
-          "ip_address": "116.203.182.5",
-          "port": "9200"
-        },
-        "remote_cmd_endpoint": {
-          "ip_address": "116.203.182.5",
-          "port": "9400"
-        },
-        "account_endpoint": {
-          "ip_address": "116.203.182.5",
-          "port": "9600"
-        },
-        "stake": "1",
-        "PrometheusPullConfig": {
-          "bind_endpoint": {
-            "ip_address": "0.0.0.0",
-            "port": "9500"
-          },
-          "access_endpoint": {
-            "ip_address": "116.203.182.5",
-            "port": "9500"
-          },
-          "url_path": "/metrics"
+    "KeyStoreConfig": {
+        "keys_file_path": "../.tolar/keystore/Thin_node/keys.info",
+        "secrets_path": "../.tolar/keystore/Thin_node/keys"
+    },
+    "blockchain_explorers": [
+        {
+            "public_key": "ebac646c3411194b00c916c0427c7e5fd9c4c0a6ddbd36ec731ffaaa0dbdd9e6c7612c17f2e435acb0450595e4e3de2fad5c1b8a10fd31e0c469f4b27a46f0c3",
+            "blockchain_explorer_endpoint": {
+                "ip_address": "159.69.30.81",
+                "port": "9876"
+            }
         }
-      },
-      {
-        "public_key": "72a5551dedadb38abc97c8b0ab272cbd4d35aadf6ff07c35ab2c83f43ad1bd0def954038eb6d31feb99382ff0e9e72e7a408c41d6db672bcb546679344b9cc6b",
-        "node_endpoint": {
-          "ip_address": "116.203.182.9",
-          "port": "9100"
-        },
-        "client_endpoint": {
-          "ip_address": "116.203.182.9",
-          "port": "9200"
-        },
-        "remote_cmd_endpoint": {
-          "ip_address": "116.203.182.9",
-          "port": "9400"
-        },
-        "account_endpoint": {
-          "ip_address": "116.203.182.9",
-          "port": "9600"
-        },
-        "stake": "1",
-        "PrometheusPullConfig": {
-          "bind_endpoint": {
-            "ip_address": "0.0.0.0",
-            "port": "9500"
-          },
-          "access_endpoint": {
-            "ip_address": "116.203.182.9",
-            "port": "9500"
-          },
-          "url_path": "/metrics"
-        }
-      },
-      {
-        "public_key": "c8bce1a19d76195cd97cea059bf2beec67a4a59edcfbb70edb962c1a4e5f78825747cf9a381dc77a2d43bee596f53883e9253afea12b11ae24e9137a97ed548d",
-        "node_endpoint": {
-          "ip_address": "116.203.182.11",
-          "port": "9100"
-        },
-        "client_endpoint": {
-          "ip_address": "116.203.182.11",
-          "port": "9200"
-        },
-        "remote_cmd_endpoint": {
-          "ip_address": "116.203.182.11",
-          "port": "9400"
-        },
-        "account_endpoint": {
-          "ip_address": "116.203.182.11",
-          "port": "9600"
-        },
-        "stake": "1",
-        "PrometheusPullConfig": {
-          "bind_endpoint": {
-            "ip_address": "0.0.0.0",
-            "port": "9500"
-          },
-          "access_endpoint": {
-            "ip_address": "116.203.182.11",
-            "port": "9500"
-          },
-          "url_path": "/metrics"
-        }
-      },
-      {
-        "public_key": "d302f6bb3a5e37f3d1e199635f20aaa04e010980e2bf922861f4a7ef4a833228ef41836f9449819706bb89752a6d3d6b6f97df4f9ec28f251a4af27daeca91f1",
-        "node_endpoint": {
-          "ip_address": "116.203.182.13",
-          "port": "9100"
-        },
-        "client_endpoint": {
-          "ip_address": "116.203.182.13",
-          "port": "9200"
-        },
-        "remote_cmd_endpoint": {
-          "ip_address": "116.203.182.13",
-          "port": "9400"
-        },
-        "account_endpoint": {
-          "ip_address": "116.203.182.13",
-          "port": "9600"
-        },
-        "stake": "1",
-        "PrometheusPullConfig": {
-          "bind_endpoint": {
-            "ip_address": "0.0.0.0",
-            "port": "9500"
-          },
-          "access_endpoint": {
-            "ip_address": "116.203.182.13",
-            "port": "9500"
-          },
-          "url_path": "/metrics"
-        }
-      }
     ]
-  },
-  "KeyStoreConfig": {
-    "account_endpoint": {
-      "ip_address": "0.0.0.0",
-      "port": "9600"
-    },
-    "keys_file_path": "../.tolar/keystore/Thin_node/keys.info",
-    "secrets_path": "../.tolar/keystore/Thin_node/keys"
-  },
-  "host_id": "Thin_node",
-  "config_path": "../.tolar/keystore/Thin_node"
 }

@@ -18,6 +18,5 @@ services:
       - .tolar/:/.tolar/
     # Set the ports configuration
     ports:
-      - "9100:9100"
       - "9200:9200"
       - "9600:9600"
