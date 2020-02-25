@@ -15,8 +15,6 @@ namespace HashNet.Net
 
         public HashNetClient(string blockchainEndpoint = "https://localhost:9100", string accountEndpoint = "https://localhost:9100")
         {
-            // This switch must be set before creating the GrpcChannel/HttpClient.
-            AppContext.SetSwitch("System.Net.Http.SocketsHttpHandler.Http2UnencryptedSupport", true);
             AccountEndpoint = accountEndpoint;
             BlockchainEndpoint = blockchainEndpoint;
         }
@@ -48,8 +46,18 @@ namespace HashNet.Net
             {
                 if (_accountService == null)
                 {
-                    var channel = GrpcChannel.ForAddress(AccountEndpoint); //, ChannelCredentials.Insecure
-                    _accountService = new AccountService.AccountServiceClient(channel);
+                    AppContext.SetSwitch("System.Net.Http.SocketsHttpHandler.Http2UnencryptedSupport", true);
+                    AppContext.SetSwitch("System.Net.Http.SocketsHttpHandler.Http2Support", true);
+                    try
+                    {
+                        var channel = GrpcChannel.ForAddress(AccountEndpoint); //, ChannelCredentials.Insecure
+                        _accountService = new AccountService.AccountServiceClient(channel);
+                    }
+                    finally
+                    {
+                        AppContext.SetSwitch("System.Net.Http.SocketsHttpHandler.Http2UnencryptedSupport", false);
+                        AppContext.SetSwitch("System.Net.Http.SocketsHttpHandler.Http2Support", false);
+                    }
                 }
                 return _accountService;
             }
@@ -61,12 +69,18 @@ namespace HashNet.Net
             {
                 if (_blockchainService == null)
                 {
-                    //var channel = GrpcChannel.ForAddress(BlockchainEndpoint, new GrpcChannelOptions
-                    //{
-                    //    Credentials = ChannelCredentials.Insecure
-                    //});
-                    var channel = GrpcChannel.ForAddress(BlockchainEndpoint);
-                    _blockchainService = new BlockchainService.BlockchainServiceClient(channel);
+                    AppContext.SetSwitch("System.Net.Http.SocketsHttpHandler.Http2UnencryptedSupport", true);
+                    AppContext.SetSwitch("System.Net.Http.SocketsHttpHandler.Http2Support", true);
+                    try
+                    {
+                        var channel = GrpcChannel.ForAddress(BlockchainEndpoint);
+                        _blockchainService = new BlockchainService.BlockchainServiceClient(channel);
+                    }
+                    finally
+                    {
+                        AppContext.SetSwitch("System.Net.Http.SocketsHttpHandler.Http2UnencryptedSupport", false);
+                        AppContext.SetSwitch("System.Net.Http.SocketsHttpHandler.Http2Support", false);
+                    }
                 }
                 return _blockchainService;
             }
