@@ -15,7 +15,7 @@ namespace HashNet.Net.Tests
         public void Can_GetAddresses()
         {
             var testClient = CreateClient();
-            var result = testClient.GetAddresses();
+            var result = testClient.ListAddresses();
             var finaleResult = result.Result;
         }
     }
